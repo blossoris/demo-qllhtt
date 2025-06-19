@@ -1,0 +1,244 @@
+{
+  "users": [
+    {
+      "id": "d14e",
+      "fullname": "Võ Ngân Khanh",
+      "email": "vongankhanh0311@gmail.com",
+      "password": "$2b$10$IcShTe.w.diBi9hym.g70uV9dS4Yhp1frYY/rHmIdfuPzCuBSeIN.",
+      "role": "student"
+    },
+    {
+      "id": "dcaa",
+      "fullname": "Ngân Khanh",
+      "email": "vnk@gmail.com",
+      "password": "$2b$10$xoK8MTjRzSO3efbbgXc7VO1oi4SrAQYhQ7uITTr70d8WGax1/ZF0q",
+      "role": "teacher"
+    },
+    {
+      "id": "f5dc",
+      "fullname": "Sinh Viên",
+      "email": "sv2@gmail.com",
+      "password": "$2b$10$pkTWszky5f5gEfCt3EEltOdHdR9hxHQYksJQQdfW8ydZDgXfLX5HW",
+      "role": "student"
+    },
+    {
+      "id": "661a",
+      "fullname": "Giảng Viên",
+      "email": "gv2@gmail.com",
+      "password": "$2b$10$5yuf6jIIRMLRdla2InpDGuIeAME6ZTK1SDBNd19CXtKh/9jNHfkvC",
+      "role": "teacher"
+    },
+    {
+      "id": "6633",
+      "fullname": "Khanh Võ",
+      "email": "vnkhanh@gmail.com",
+      "password": "$2b$10$l/LWviiLg/.7Iug7tKVL9uFrWzfHMUSZZB4XxiW.ToOzq9p9d0qWy",
+      "role": "student"
+    },
+    {
+      "id": "3522",
+      "fullname": "Ngân Khanh Võ",
+      "email": "khanh@gmail.com",
+      "password": "$2b$10$VBPKoaB81hUoAjyH/nHJP.Ty3mQo9cusRJCZsfTTgTyDhsTZzWnam",
+      "role": "student"
+    }
+  ],
+  "courses": [
+    {
+      "id": "MATH101",
+      "name": "Toán cao cấp",
+      "studentIds": [
+        "d14e",
+        "6633",
+        "f8f3"
+      ],
+      "status": "inactive",
+      "inviteCode": "MATH101-2025",
+      "allowStudentJoin": true,
+      "description": "Môn học về các khái niệm toán học nâng cao",
+      "instructorId": "dcaa",
+      "createdAt": "2025-01-20T09:00:00Z",
+      "studentCount": 3
+    },
+    {
+      "id": "IT101",
+      "name": "Lập trình Web",
+      "studentIds": [
+        "d14e",
+        "f5dc",
+        "6633",
+        "3522"
+      ],
+      "allowStudentJoin": false,
+      "status": "active",
+      "description": "Môn học về lập trình web cơ bản",
+      "instructorId": "dcaa",
+      "createdAt": "2025-01-18T14:30:00Z",
+      "studentCount": 3,
+      "inviteCode": "IT101-2025"
+    },
+    {
+      "id": "IT102",
+      "name": "Cơ sở dữ liệu",
+      "studentIds": [
+        "6633",
+        "f8f3"
+      ],
+      "status": "active",
+      "description": "",
+      "inviteCode": "MLOP",
+      "instructorId": "661a",
+      "allowStudentJoin": false,
+      "createdAt": "2025-01-18T14:30:00Z",
+      "studentCount": 0
+    },
+    {
+      "id": "MMM",
+      "name": "Chủ nghĩa Mac-Lenin",
+      "description": "Chủ nghĩa Mac-Lenin",
+      "inviteCode": "MMM-2025",
+      "allowStudentJoin": true,
+      "studentIds": [
+        "6633",
+        "f8f3",
+        "3522"
+      ],
+      "instructorId": "661a",
+      "status": "active",
+      "studentCount": 0
+    },
+    {
+      "id": "NEW",
+      "name": "Môn mới",
+      "description": "Mới",
+      "inviteCode": "NEW-2025",
+      "allowStudentJoin": true,
+      "status": "active",
+      "studentIds": [],
+      "instructorId": "dcaa"
+    }
+  ],
+  "materials": [
+    {
+      "courseId": "IT101",
+      "title": "File bài giảng",
+      "type": "link",
+      "url": "https://drive.google.com/drive/folders/141hu4Tr0a1ThFcd9Z88EnpdrzAZ7WYLl?usp=sharing",
+      "id": "MAT1",
+      "createdAt": "2025-06-19T12:37:39.734Z"
+    },
+    {
+      "id": "MAT2",
+      "courseId": "IT101",
+      "title": "Video hướng dẫn ReactJS",
+      "type": "video",
+      "url": "https://www.youtube.com/watch?v=3OqiKTyH4r0",
+      "uploadedBy": "dcaa",
+      "createdAt": "2025-02-05T15:30:00Z"
+    },
+    {
+      "id": "MAT3",
+      "courseId": "IT101",
+      "title": "Tài liệu tham khảo HTML",
+      "type": "link",
+      "url": "https://example.com/html-ref",
+      "uploadedBy": "dcaa",
+      "createdAt": "2025-02-06T11:20:00Z"
+    },
+    {
+      "courseId": "MATH101",
+      "title": "Bài giảng chương 1",
+      "type": "video",
+      "url": "https://www.youtube.com/watch?v=8DncK2kOg6s",
+      "id": "bbb1",
+      "createdAt": "2025-06-19T12:37:42.651Z"
+    },
+    {
+      "id": "c3ea",
+      "courseId": "MATH101",
+      "title": "Tài liệu tham khảo",
+      "type": "pdf",
+      "url": "https://ucarecdn.com/546e0b0d-0e60-4f61-ba6a-1b4a9a00a3d8/v90DetailReactUltimatehoidanit.pdf",
+      "uploadedBy": "dcaa",
+      "createdAt": "2025-06-19T12:56:56.281Z"
+    },
+    {
+      "id": "275c",
+      "courseId": "MATH101",
+      "title": "Tài liệu tham khảo",
+      "type": "video",
+      "url": "https://www.youtube.com/watch?v=8DncK2kOg6s",
+      "uploadedBy": "dcaa",
+      "createdAt": "2025-06-19T13:53:54.134Z"
+    }
+  ],
+  "assignments": [
+    {
+      "id": "ASS1",
+      "courseId": "MATH101",
+      "title": "Bài tập chương 1",
+      "description": "Giải các bài tập trong chương 1",
+      "dueDate": "2025-06-20T23:59:00Z",
+      "maxScore": 10,
+      "createdAt": "2025-02-10T09:00:00Z",
+      "createdBy": "dcaa",
+      "submissions": [
+        {
+          "studentId": "d14e",
+          "submittedAt": "2025-03-14T15:30:00Z",
+          "fileUrl": "/submissions/math1_student1.pdf",
+          "score": null,
+          "graded": false
+        }
+      ]
+    },
+    {
+      "id": "ASS2",
+      "courseId": "IT101",
+      "title": "Bài tập HTML/CSS",
+      "description": "Thiết kế trang web đơn giản",
+      "dueDate": "2025-03-20T23:59:00Z",
+      "maxScore": 15,
+      "createdAt": "2025-02-12T14:00:00Z",
+      "createdBy": "dcaa",
+      "submissions": []
+    }
+  ],
+  "notifications": [
+    {
+      "id": "1",
+      "title": "Bài tập mới",
+      "content": "Đã có bài tập mới môn toán cao cấp",
+      "targetUsers": [
+        "d14e"
+      ],
+      "createdAt": "2025-02-10T09:05:00Z",
+      "readBy": [],
+      "relatedCourse": "MATH101",
+      "relatedAssignment": "ASS1"
+    },
+    {
+      "id": "2",
+      "title": "Thông báo hệ thống",
+      "content": "Hệ thống sẽ bảo trì vào 2h sáng",
+      "targetUsers": "all",
+      "createdAt": "2025-02-08T16:30:00Z",
+      "readBy": [
+        "d14e",
+        "dcaa"
+      ]
+    },
+    {
+      "id": "1",
+      "title": "Bài tập mới",
+      "content": "Đã có bài tập mới môn web",
+      "targetUsers": [
+        "d14e"
+      ],
+      "createdAt": "2025-02-10T09:05:00Z",
+      "readBy": [],
+      "relatedCourse": "IT101",
+      "relatedAssignment": "ASS2"
+    }
+  ]
+}

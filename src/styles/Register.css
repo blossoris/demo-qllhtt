@@ -1,0 +1,18 @@
+
+.register-page{
+    width: 80%;
+    margin: 10px auto;
+}
+.register-con{
+    width: 70%;
+    padding: 20px;
+    border-radius: 10px;   
+    margin: 0 auto;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+.form-container {
+    width: 70%;
+    margin: 50px auto;
+    border-radius: 10px;
+    padding: 20px;
+}
