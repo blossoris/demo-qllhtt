@@ -41,6 +41,27 @@
       "email": "khanh@gmail.com",
       "password": "$2b$10$VBPKoaB81hUoAjyH/nHJP.Ty3mQo9cusRJCZsfTTgTyDhsTZzWnam",
       "role": "student"
+    },
+    {
+      "id": "3b6f",
+      "fullname": "Ngân Khanh Võ",
+      "email": "khanh01@gmail.com",
+      "password": "$2b$10$f8l4kGUc6.PVGdBUO6N4U.SJsIX8cH6CZ8ItsvzX19PghYTtXlHjG",
+      "role": "student"
+    },
+    {
+      "id": "63b5",
+      "fullname": "Ngân Khanh Võ",
+      "email": "khanh001@gmail.com",
+      "password": "$2b$10$Uyjasb0LpUzTDQJlN2O6zu2Me9HwJH5gJmNronbcIGR31p/1rXT8m",
+      "role": "student"
+    },
+    {
+      "id": "29ce",
+      "fullname": "Ngân Khanh Võ",
+      "email": "khanh0010@gmail.com",
+      "password": "$2b$10$Kt3ZXG8BiOzGp3RsftHHZeozlVrFBVVEdOukV1zTiKKs7aNqcRy1q",
+      "role": "student"
     }
   ],
   "courses": [
@@ -50,9 +71,10 @@
       "studentIds": [
         "d14e",
         "6633",
-        "f8f3"
+        "f8f3",
+        "63b5"
       ],
-      "status": "inactive",
+      "status": "active",
       "inviteCode": "MATH101-2025",
       "allowStudentJoin": true,
       "description": "Môn học về các khái niệm toán học nâng cao",
@@ -67,14 +89,15 @@
         "d14e",
         "f5dc",
         "6633",
-        "3522"
+        "3522",
+        "29ce"
       ],
       "allowStudentJoin": false,
       "status": "active",
       "description": "Môn học về lập trình web cơ bản",
       "instructorId": "dcaa",
       "createdAt": "2025-01-18T14:30:00Z",
-      "studentCount": 3,
+      "studentCount": 4,
       "inviteCode": "IT101-2025"
     },
     {
@@ -101,20 +124,37 @@
       "studentIds": [
         "6633",
         "f8f3",
-        "3522"
+        "3522",
+        "3b6f",
+        "29ce"
       ],
       "instructorId": "661a",
       "status": "active",
       "studentCount": 0
     },
     {
-      "id": "NEW",
-      "name": "Môn mới",
-      "description": "Mới",
-      "inviteCode": "NEW-2025",
+      "id": "MONHOC",
+      "name": "Môn học",
+      "description": "Mô tả",
+      "inviteCode": "MONHOC-2025",
+      "allowStudentJoin": false,
+      "status": "inactive",
+      "studentIds": [
+        "3b6f"
+      ],
+      "instructorId": "dcaa",
+      "studentCount": 1
+    },
+    {
+      "id": "Web",
+      "name": "Lập trình web",
+      "description": "Lập trình web",
+      "inviteCode": "Web-2025",
       "allowStudentJoin": true,
       "status": "active",
-      "studentIds": [],
+      "studentIds": [
+        "29ce"
+      ],
       "instructorId": "dcaa"
     }
   ],
@@ -163,13 +203,48 @@
       "createdAt": "2025-06-19T12:56:56.281Z"
     },
     {
-      "id": "275c",
-      "courseId": "MATH101",
-      "title": "Tài liệu tham khảo",
+      "id": "3432",
+      "courseId": "MONHOC",
+      "title": "Nhóm 8",
       "type": "video",
-      "url": "https://www.youtube.com/watch?v=8DncK2kOg6s",
+      "url": "https://res.cloudinary.com/djdjirswg/raw/upload/v1750384092/gnsoo2nupznxncnarqyq.mp4",
       "uploadedBy": "dcaa",
-      "createdAt": "2025-06-19T13:53:54.134Z"
+      "createdAt": "2025-06-20T01:48:42.329Z"
+    },
+    {
+      "id": "2861",
+      "courseId": "MONHOC",
+      "title": "Link",
+      "type": "link",
+      "url": "https://react.dev/",
+      "uploadedBy": "dcaa",
+      "createdAt": "2025-06-20T01:49:04.367Z"
+    },
+    {
+      "id": "ff0e",
+      "courseId": "MONHOC",
+      "title": "PDF",
+      "url": "https://res.cloudinary.com/djdjirswg/raw/upload/v1750384132/trrga5jjxgtn02imnd9b.pdf",
+      "uploadedBy": "dcaa",
+      "createdAt": "2025-06-20T01:49:22.667Z"
+    },
+    {
+      "id": "a58b",
+      "courseId": "MATH101",
+      "title": "Video",
+      "type": "video",
+      "url": "https://res.cloudinary.com/djdjirswg/raw/upload/v1750384333/c9gwvcmmezz3a53lpyea.mp4",
+      "uploadedBy": "dcaa",
+      "createdAt": "2025-06-20T01:52:44.290Z"
+    },
+    {
+      "id": "da37",
+      "courseId": "MATH101",
+      "title": "Link",
+      "type": "link",
+      "url": "https://react.dev/",
+      "uploadedBy": "dcaa",
+      "createdAt": "2025-06-20T01:52:59.637Z"
     }
   ],
   "assignments": [

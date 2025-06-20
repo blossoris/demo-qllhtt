@@ -29,6 +29,7 @@ function MyCourses() {
             }
           });
           setInstructors(teacherMap);
+          console.log("Dữ liệu: ", teacherMap);
         });
       } catch (e){
         message.error('Không thể load dữ liệu.');
@@ -53,6 +54,9 @@ function MyCourses() {
         <List
           itemLayout="horizontal"
           dataSource={courses}
+          pagination={{
+            pageSize: 5,
+          }}
           renderItem={(course) => (
             <List.Item
               actions={[

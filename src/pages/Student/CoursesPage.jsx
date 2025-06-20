@@ -30,11 +30,12 @@ function CoursesPage() {
           }
         });
 
+        // Thêm course.enrolled = true/false để biết người dùng đã đăng ký hay chưa.
         const updatedCourses = courseList.map((course) => ({
           ...course,
           enrolled: course.studentIds?.includes(currentUser?.id),
         }));
-
+        //Lưu dữ liệu vào state
         setCourses(updatedCourses);
         setInstructors(instructorMap);
         
@@ -70,6 +71,7 @@ function CoursesPage() {
       return;
     }
     if (!course.allowStudentJoin) {
+      //Mở hộp thoại để yêu cầu nhập mã mời
       Modal.confirm({
         title: `Nhập mã mời để đăng ký môn học "${course.name}"`,
         content: <Input id="inviteCodeInput" placeholder="Nhập mã mời..." />,
@@ -163,6 +165,9 @@ function CoursesPage() {
         <List
           itemLayout="horizontal"
           dataSource={filteredCourses}
+          pagination={{
+            pageSize: 5,
+          }}
           renderItem={(course) => (
             <List.Item
               actions={[

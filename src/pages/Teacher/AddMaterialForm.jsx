@@ -12,9 +12,9 @@ export default function AddMaterialForm({ visible, onClose, courseId, onSuccess 
   const { currentUser } = useAuth();
   const { control, handleSubmit, watch, reset } = useForm();
   const [uploading, setUploading] = useState(false);
-  const [selectedFile, setSelectedFile] = useState(null);
+  const [selectedFile, setSelectedFile] = useState(null); //// lưu tạm file được chọn
 
-  const type = watch('type');
+  const type = watch('type'); // lấy giá trị real-time của trường "type"
 
   const handleFinish = async (data) => {
     try {
@@ -39,7 +39,7 @@ export default function AddMaterialForm({ visible, onClose, courseId, onSuccess 
       message.success('Tài liệu đã được thêm');
       reset();
       setSelectedFile(null);
-      onSuccess?.();
+      onSuccess?.(); ////Gọi lại callback nếu có truyền
       onClose();
     } catch (err) {
       console.error(err);
@@ -65,7 +65,7 @@ export default function AddMaterialForm({ visible, onClose, courseId, onSuccess 
       }}
       title="Thêm tài liệu mới"
       footer={null}
-      destroyOnClose
+      destroyOnHidden
     >
       <Form layout="vertical" onFinish={handleSubmit(handleFinish)}>
         <Form.Item label="Tiêu đề tài liệu">

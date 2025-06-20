@@ -35,7 +35,7 @@ function CourseModal({ open, onCancel, onSave, course, courses = [] }) {
     }
   }, [idValue, course, setValue]);
 
-  // Khi mở modal (thêm mới hoặc chỉnh sửa)
+  // Nếu chỉnh sửa, reset form bằng dữ liệu của môn học cũ. Nếu thêm mới, reset về trắng
   useEffect(() => {
     if (course) {
       reset(course);
@@ -56,8 +56,8 @@ function CourseModal({ open, onCancel, onSave, course, courses = [] }) {
       ...data,
       studentIds: course?.studentIds || [],
     };
-    onSave(preparedData);
-    reset();
+    onSave(preparedData); // gọi callback để component cha xử lý lưu
+    reset(); // reset form sau khi xong
   };
 
   return (
@@ -65,13 +65,13 @@ function CourseModal({ open, onCancel, onSave, course, courses = [] }) {
       title={course ? 'Chỉnh sửa môn học' : 'Thêm môn học mới'}
       open={open}
       onCancel={() => {
-        reset();
+        reset(); //reset form rồi gọi onCancel để đóng modal
         onCancel();
       }}
-      onOk={handleSubmit(onSubmit)}
+      onOk={handleSubmit(onSubmit)} //dùng handleSubmit() để validate và gọi onSubmit()
       okText="Lưu"
       cancelText="Hủy"
-      confirmLoading={isSubmitting}
+      confirmLoading={isSubmitting} 
       width={700}
     >
       <Form layout="vertical">

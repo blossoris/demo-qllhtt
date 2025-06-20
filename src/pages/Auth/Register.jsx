@@ -98,6 +98,8 @@ const RegisterForm = () => {
                             size='large'
                             prefix={<MailOutlined />}
                         />
+                        {/* Người dùng đã tương tác với trường input (isTouched)
+                        Và đã nhập một giá trị hợp lệ khác rỗng (field.value) */}
                         {fieldState.error ? (
                             <Text type="danger">{fieldState.error.message} <ExclamationCircleOutlined /></Text>
                         ) : fieldState.isTouched && field.value ? (

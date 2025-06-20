@@ -1,15 +1,14 @@
 import { useEffect, useState } from 'react';
 import {
-  Card, Tabs, List, Typography, Button, Space, Tag, Popconfirm, message, Modal, Form, Input, Select
+  Card, Tabs, List, Typography, Button, Row, Col, Tag, Popconfirm, message, Modal, Form, Input, Select, Dropdown 
 } from 'antd';
 import {
   FilePdfOutlined, VideoCameraOutlined, LinkOutlined, BookOutlined,
-  UserOutlined, DeleteOutlined, EditOutlined,
-  EyeOutlined
+  UserOutlined, DeleteOutlined, EditOutlined, MoreOutlined, EyeOutlined
 } from '@ant-design/icons';
-import { useParams } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 import { fetchCourseById, fetchMaterialsByCourseId, fetchAssignmentsByCourseId,
-  fetchNotificationsByCourseId, deleteMaterial, updateMaterial } from '../services/api';
+  fetchNotificationsByCourseId, deleteMaterial, updateMaterial, updateCourse } from '../services/api';
 import { useAuth } from '../contexts/useAuth';
 import AddMaterialForm from './Teacher/AddMaterialForm';
 
@@ -26,6 +25,7 @@ function CourseDetailPage() {
   const [showAddModal, setShowAddModal] = useState(false);
   const [editingMaterial, setEditingMaterial] = useState(null);
   const [form] = Form.useForm();
+  const navigate = useNavigate();
 
   useEffect(() => {
     if (!loading && currentUser) {
@@ -66,8 +66,8 @@ function CourseDetailPage() {
   };
 
   const handleEditMaterial = (material) => {
-    setEditingMaterial(material);
-    form.setFieldsValue(material);
+    setEditingMaterial(material); //Gán tài liệu đang sửa
+    form.setFieldsValue(material); //// đổ dữ liệu vào form
   };
 
   const handleUpdateMaterial = async () => {
@@ -91,10 +91,48 @@ function CourseDetailPage() {
 
   if (!course) return <div>Loading...</div>;
 
+  const handleUnenroll = async () => {
+    try {
+      const updatedStudentIds = course.studentIds.filter(id => id !== currentUser.id);
+      await updateCourse(course.id, { studentIds: updatedStudentIds });
+
+      message.success("Bạn đã hủy đăng ký môn học thành công!");
+      navigate(-1);
+    } catch (error) {
+      console.error("Lỗi khi hủy đăng ký:", error);
+      message.error("Hủy đăng ký thất bại!");
+    }
+  };
+
+  const items = [
+    {
+      label: (
+        <Popconfirm
+          title="Bạn có chắc muốn hủy đăng ký môn học này?"
+          onConfirm={handleUnenroll}
+          okText="Đồng ý"
+          cancelText="Hủy"
+        >
+          <span>Hủy đăng ký</span>
+        </Popconfirm>
+      ),
+      key: 'unenroll',
+    },
+  ];
+
   return (
     <div style={{ padding: '24px' }}>
-      <Card bordered={false}>
-        <Title level={2}>{course.name} ({course.id})</Title>
+      <Card variant='borderless'>
+        <Row>
+          <Col span={12}><Title level={2}>{course.name} ({course.id})</Title></Col>
+          {currentUser?.role==='student' && (
+          <Col span={12}  style={{ justifyContent: 'flex-end', display:'flex', alignItems: 'center'}}>
+            <Dropdown menu={{ items }} trigger={['click']} placement="bottomRight" arrow={{ pointAtCenter: true }}>
+              <Button type="text" size='large' icon={<MoreOutlined />} />
+            </Dropdown>
+          </Col>
+          )}
+        </Row>
 
         <Text>{course.description}</Text>
 
@@ -152,6 +190,9 @@ function CourseDetailPage() {
                   <List
                     itemLayout="horizontal"
                     dataSource={materials}
+                    pagination={{
+                      pageSize: 5,
+                    }}
                     renderItem={item => (
                       <List.Item
                         actions={[

@@ -50,7 +50,7 @@ export const joinCourseByInviteCode = async (studentId, inviteCode) => {
 
   if (!course.studentIds.includes(studentId)) {
     course.studentIds.push(studentId);
-    await axios.put(`${API_URL}/courses/${course.id}`, course);
+    await axios.patch(`${API_URL}/courses/${course.id}`, course);
   }
   return course;
 };

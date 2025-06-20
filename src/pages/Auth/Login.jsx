@@ -17,7 +17,7 @@ const Login = () => {
 
   const onSubmit = async (data) => {
     try {
-      const users = await fetchUsers();
+      const users = await fetchUsers(); // Gọi API
 
       const matchedUser = users.find((user) => user.email === data.email && bcrypt.compareSync(data.password, user.password));
       if( matchedUser ) {
