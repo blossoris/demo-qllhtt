@@ -24,6 +24,10 @@ function CourseDetailPage() {
   const { currentUser, loading } = useAuth();
   const [showAddModal, setShowAddModal] = useState(false);
   const [editingMaterial, setEditingMaterial] = useState(null);
+  const [previewVisible, setPreviewVisible] = useState(false);
+  const [previewMaterial, setPreviewMaterial] = useState(null);
+
+
   const [form] = Form.useForm();
   const navigate = useNavigate();
 
@@ -91,6 +95,7 @@ function CourseDetailPage() {
 
   if (!course) return <div>Loading...</div>;
 
+  //Hủy đăng ký
   const handleUnenroll = async () => {
     try {
       const updatedStudentIds = course.studentIds.filter(id => id !== currentUser.id);
@@ -102,6 +107,12 @@ function CourseDetailPage() {
       console.error("Lỗi khi hủy đăng ký:", error);
       message.error("Hủy đăng ký thất bại!");
     }
+  };
+
+  //Mở tài liệu
+  const handlePreviewMaterial = (material) => {
+    setPreviewMaterial(material);
+    setPreviewVisible(true);
   };
 
   const items = [
@@ -196,8 +207,14 @@ function CourseDetailPage() {
                     renderItem={item => (
                       <List.Item
                         actions={[
-                          <Button type="link" href={item.url} target="_blank"><EyeOutlined/></Button>,
+                          //Xem tài liệu
+                          item.type === 'link' ? (
+                            <Button type="link" icon={<EyeOutlined />} href={item.url} target="_blank" rel="noopener noreferrer"/>
+                          ) : (
+                            <Button type="link" icon={<EyeOutlined />} onClick={() => handlePreviewMaterial(item)} />
+                          ),
 
+                          //Chỉnh sửa
                           currentUser?.role === 'teacher' && (
                             <>
                               <Button
@@ -205,7 +222,8 @@ function CourseDetailPage() {
                                 icon={<EditOutlined />}
                                 onClick={() => handleEditMaterial(item)}
                               />
-                              
+
+                              {/* Xóa tài liệu */}
                               <Popconfirm
                                 title="Xác nhận xóa tài liệu này?"
                                 onConfirm={() => handleDeleteMaterial(item.id)}
@@ -220,7 +238,15 @@ function CourseDetailPage() {
                       >
                         <List.Item.Meta
                           avatar={getMaterialIcon(item.type)}
-                          title={<a href={item.url} target="_blank" rel="noopener noreferrer">{item.title}</a>}
+                          title={
+                            item.type === 'link' ? (
+                              <a href={item.url} target="_blank" rel="noopener noreferrer">{item.title}</a>
+                            ) : (
+                              <span style={{ cursor: 'pointer' }} onClick={() => handlePreviewMaterial(item)}>
+                                {item.title}
+                              </span>
+                            )
+                          }
                           description={`Ngày đăng: ${new Date(item.createdAt).toLocaleDateString()}`}
                         />
                       </List.Item>
@@ -277,6 +303,35 @@ function CourseDetailPage() {
             },
           ]}
         />
+        <Modal
+          open={previewVisible}
+          footer={null}
+          onCancel={() => {
+            setPreviewVisible(false);
+            setPreviewMaterial(null);
+          }}
+          title={previewMaterial?.title}
+          width="80%"
+          destroyOnHidden 
+        >
+          {previewMaterial?.type === 'pdf' && (
+            <iframe
+              src={previewMaterial.url}
+              title="PDF Preview"
+              width="100%"
+              height="600px"
+              style={{ border: 'none' }}
+            />
+          )}
+
+          {previewMaterial?.type === 'video' && (
+            <video controls width="100%">
+              <source src={previewMaterial.url} type="video/mp4" />
+              Trình duyệt không hỗ trợ phát video.
+            </video>
+          )}
+
+        </Modal>
       </Card>
     </div>
   );

@@ -170,26 +170,17 @@
     {
       "id": "MAT2",
       "courseId": "IT101",
-      "title": "Video hướng dẫn ReactJS",
-      "type": "video",
+      "title": "Link video hướng dẫn ReactJS",
+      "type": "link",
       "url": "https://www.youtube.com/watch?v=3OqiKTyH4r0",
       "uploadedBy": "dcaa",
       "createdAt": "2025-02-05T15:30:00Z"
     },
     {
-      "id": "MAT3",
-      "courseId": "IT101",
-      "title": "Tài liệu tham khảo HTML",
-      "type": "link",
-      "url": "https://example.com/html-ref",
-      "uploadedBy": "dcaa",
-      "createdAt": "2025-02-06T11:20:00Z"
-    },
-    {
       "courseId": "MATH101",
       "title": "Bài giảng chương 1",
-      "type": "video",
-      "url": "https://www.youtube.com/watch?v=8DncK2kOg6s",
+      "type": "link",
+      "url": "https://www.youtube.com/embed/x0fSBAgBrOQ?si=ViwOQlCBED8FADoz",
       "id": "bbb1",
       "createdAt": "2025-06-19T12:37:42.651Z"
     },
@@ -229,15 +220,6 @@
       "createdAt": "2025-06-20T01:49:22.667Z"
     },
     {
-      "id": "a58b",
-      "courseId": "MATH101",
-      "title": "Video",
-      "type": "video",
-      "url": "https://res.cloudinary.com/djdjirswg/raw/upload/v1750384333/c9gwvcmmezz3a53lpyea.mp4",
-      "uploadedBy": "dcaa",
-      "createdAt": "2025-06-20T01:52:44.290Z"
-    },
-    {
       "id": "da37",
       "courseId": "MATH101",
       "title": "Link",
@@ -245,6 +227,33 @@
       "url": "https://react.dev/",
       "uploadedBy": "dcaa",
       "createdAt": "2025-06-20T01:52:59.637Z"
+    },
+    {
+      "id": "008d",
+      "courseId": "IT101",
+      "title": "Video hướng dẫn",
+      "type": "video",
+      "url": "https://res.cloudinary.com/djdjirswg/raw/upload/v1750663271/oaygpircvow46xnzuugx.mp4",
+      "uploadedBy": "dcaa",
+      "createdAt": "2025-06-23T07:21:41.827Z"
+    },
+    {
+      "id": "3a60",
+      "courseId": "IT101",
+      "title": "Pdf",
+      "url": "https://res.cloudinary.com/djdjirswg/raw/upload/v1750663342/f0q31squisity9hhi9cj.pdf",
+      "uploadedBy": "dcaa",
+      "createdAt": "2025-06-23T07:22:52.036Z",
+      "type": "pdf"
+    },
+    {
+      "id": "bf35",
+      "courseId": "IT101",
+      "title": "pdf mới",
+      "type": "pdf",
+      "url": "https://res.cloudinary.com/djdjirswg/raw/upload/v1750663792/o0srq3ogtnlxghonac0y.pdf",
+      "uploadedBy": "dcaa",
+      "createdAt": "2025-06-23T07:30:22.177Z"
     }
   ],
   "assignments": [
