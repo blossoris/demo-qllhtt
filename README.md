@@ -6,17 +6,22 @@
 ## Cài đặt
 
 1. **Clone repository về máy:**
+      ```sh
+   git clone https://github.com/vnkhanh/demo-qllhtt.git
+   cd demo-qllhtt
+   ```
+      hoặc
    ```sh
-   gh repo clone vnkhanh/demo-qllhtt hoặc git clone https://github.com/vnkhanh/demo-qllhtt.git
+   gh repo clone vnkhanh/demo-qllhtt
    cd demo-qllhtt
    ```
 
-2. **Cài đặt các package cần thiết:**
+3. **Cài đặt các package cần thiết:**
    ```sh
    npm install
    ```
 
-3. **Chạy ứng dụng:**
+4. **Chạy ứng dụng:**
    ```sh
    npm run dev
    ```
