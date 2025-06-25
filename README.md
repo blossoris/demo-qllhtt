@@ -3,10 +3,6 @@
 ## Giới thiệu
 Đây là project quản lý lớp học sử dụng React và JSON Server.
 
-## Yêu cầu
-- Node.js >= 16
-- npm >= 8
-
 ## Cài đặt
 
 1. **Clone repository về máy:**
